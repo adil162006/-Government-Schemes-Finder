@@ -1,7 +1,11 @@
 // Import necessary modules
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
+
+
 
 const app = express();
 const PORT = 5000;
@@ -10,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection URI
-const uri = "mongodb+srv://adil:ADIL1601@cluster0.lewvppr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI
 const client = new MongoClient(uri);
 const dbName = "government_schemes";
 
